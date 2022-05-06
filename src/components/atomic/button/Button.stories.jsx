@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 
 import Button from '.';
@@ -7,14 +8,21 @@ export default {
   component: Button,
   argTypes: {
     type: {
-      options: ['normal', 'warning', 'link'],
+      options: ['normal', 'warning'],
       control: { type: 'radio' },
     },
   },
+  decorators: [
+    (Story) => (
+      <div className="light-theme">
+        <Story />
+      </div>
+    ),
+  ],
 };
 
-const Template = () => (
-  <Button>
+const Template = (args) => (
+  <Button {...args}>
     <span>Text to display</span>
   </Button>
 );
@@ -24,6 +32,3 @@ Normal.args = { type: 'normal' };
 
 export const Warning = Template.bind({});
 Warning.args = { type: 'warning' };
-
-export const Link = Template.bind({});
-Link.args = { type: 'link' };
