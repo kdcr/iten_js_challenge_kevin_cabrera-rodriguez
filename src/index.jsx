@@ -1,6 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
+import App from './components/layout/App';
 
 import './index.css';
 
-ReactDOM.render(<h1>IteNlearning-Challenge</h1>, document.getElementById('root'));
+const container = document.getElementById('app');
+const root = createRoot(container);
+root.render(<App theme="light">IteNlearning-Challenge</App>);
