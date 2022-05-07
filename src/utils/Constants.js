@@ -11,4 +11,12 @@ const DeviceSizes = {
   '2xl': '1536px',
 };
 
-export { AppThemes, DeviceSizes };
+const DeviceSizesNum = {
+  sm: 640,
+  md: 768,
+  lg: 1024,
+  xl: 1280,
+  '2xl': 1536,
+};
+
+export { AppThemes, DeviceSizes, DeviceSizesNum };
