@@ -3,5 +3,12 @@ const AppThemes = {
   DARK: 'dark',
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export { AppThemes };
+const DeviceSizes = {
+  sm: '640px',
+  md: '768px',
+  lg: '1024px',
+  xl: '1280px',
+  '2xl': '1536px',
+};
+
+export { AppThemes, DeviceSizes };

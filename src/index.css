@@ -1,6 +1,9 @@
+body {
+  margin: 0;
+}
+
 body * {
   font-size: 16px;
-  margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -9,6 +12,7 @@ body * {
   --color-bg: #e5e5e5;
   --color-bg-alt: #c1c1c1;
   --color-fg: #000;
+  --color-fg-light: #646464;
   --color-fg-alt: #fff;
   --color-accent: #51e0be;
   --color-warning: #e05151;
