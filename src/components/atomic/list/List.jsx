@@ -27,33 +27,41 @@ const ListContent = styled.div`
 `;
 
 const List = (props) => {
-  const { heads, data } = props;
+  const { heads, data, className, style } = props;
 
   const { t } = useTranslation('common');
 
   const generateLabelStyle = (dataName) => {
-    const relatedHead = heads.find((head) => head.dataName === dataName);
+    const relatedHead = heads?.find((head) => head.dataName === dataName);
     return {
-      width: relatedHead.width,
-      'text-align': relatedHead.align,
+      width: relatedHead?.width,
+      textAlign: relatedHead?.align,
     };
   };
 
   return (
-    <ListContainer>
+    <ListContainer className={className} style={style}>
       <ListHeader>
-        {heads.map((head) => (
-          <Label color="secondary" style={{ width: head.width, 'text-align': head.align }}>
+        {heads?.map((head) => (
+          <Label
+            size="small"
+            color="secondary"
+            style={{ width: head.width, 'text-align': head.align }}
+          >
             {t(head.label)}
           </Label>
         ))}
       </ListHeader>
       <ListContent>
-        {data.map((item) => (
+        {data?.map((item) => (
           <ListItem>
             {Object.entries(item).map((column) => {
               if (typeof column[1] === 'string') {
-                return <Label style={{ ...generateLabelStyle(column[0]) }}>{column[1]}</Label>;
+                return (
+                  <Label size="large" style={{ ...generateLabelStyle(column[0]) }}>
+                    {column[1]}
+                  </Label>
+                );
               }
               return React.cloneElement(column[1], {
                 style: { ...generateLabelStyle(column[0]) },
@@ -76,11 +84,15 @@ List.propTypes = {
     }),
   ),
   data: PropTypes.arrayOf(PropTypes.shape({})),
+  className: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 List.defaultProps = {
   heads: [],
   data: [],
+  className: '',
+  style: {},
 };
 
 export default List;

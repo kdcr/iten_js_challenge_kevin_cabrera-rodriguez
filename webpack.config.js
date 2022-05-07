@@ -5,6 +5,7 @@ module.exports = {
   entry: path.join(__dirname, 'src', 'index.jsx'),
   output: {
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -32,5 +33,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '.json', '.css'],
     modules: ['src', 'node_modules'], // Assuming that your files are inside the src dir
+  },
+  devServer: {
+    historyApiFallback: true,
   },
 };

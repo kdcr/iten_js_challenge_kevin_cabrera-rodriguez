@@ -7,12 +7,13 @@ import Landing from '../landing';
 import LayoutWrapper from '../layoutWrapper';
 import { writeData } from '../../../api/ApiUtils';
 import MockupData from '../../../api/MockupData.json';
+import ClassroomList from '../classroomList/ClassroomList';
 
 const App = (props) => {
   const { theme } = props;
 
   useEffect(() => {
-    if (!localStorage.itenData) {
+    if (!localStorage.itenData || localStorage.itenData === 'null') {
       writeData(MockupData);
     }
   }, []);
@@ -27,6 +28,15 @@ const App = (props) => {
               // eslint-disable-next-line react/jsx-wrap-multilines
               <LayoutWrapper>
                 <Landing />
+              </LayoutWrapper>
+            }
+          />
+          <Route
+            path="/classrooms"
+            element={
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <LayoutWrapper>
+                <ClassroomList />
               </LayoutWrapper>
             }
           />
