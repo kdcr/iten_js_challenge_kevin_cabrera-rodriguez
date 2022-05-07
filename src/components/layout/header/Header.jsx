@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 
@@ -23,16 +23,29 @@ const HeaderContainer = styled.div`
 `;
 
 const Header = () => {
+  const navigate = useNavigate();
   const { t } = useTranslation('common');
 
   return (
     <HeaderContainer>
-      <Link to="/">
+      <span
+        onKeyPress={() => navigate('/')}
+        tabIndex={0}
+        style={{ cursor: 'pointer' }}
+        role="link"
+        onClick={() => navigate('/')}
+      >
         <Label size="subtitle">{t('appTitle')}</Label>
-      </Link>
-      <Link to="/">
+      </span>
+      <span
+        onKeyPress={() => navigate('/classrooms')}
+        tabIndex={0}
+        style={{ cursor: 'pointer' }}
+        role="link"
+        onClick={() => navigate('/classrooms')}
+      >
         <Label size="subtitle">{t('classrooms')}</Label>
-      </Link>
+      </span>
     </HeaderContainer>
   );
 };
