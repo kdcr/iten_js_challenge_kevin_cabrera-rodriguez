@@ -9,6 +9,7 @@ body * {
   --color-bg: #e5e5e5;
   --color-bg-alt: #c1c1c1;
   --color-fg: #000;
+  --color-fg-light: #646464;
   --color-fg-alt: #fff;
   --color-accent: #51e0be;
   --color-warning: #e05151;
