@@ -1,6 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { useTranslation } from 'react-i18next';
+
+import Label from '../../atomic/label';
 
 const LandingContainer = styled.div`
   display: flex;
@@ -11,23 +13,18 @@ const LandingContainer = styled.div`
   height: 100%;
 `;
 
-const Landing = (props) => {
-  const { children } = props;
+const Landing = () => {
+  const { t } = useTranslation('common');
 
   return (
     <LandingContainer>
-      <div style={{ fontSize: '48px' }}>Welcome</div>
-      {children}
+      <Label size="title">{t('welcome')}</Label>
     </LandingContainer>
   );
 };
 
-Landing.propTypes = {
-  children: PropTypes.node,
-};
+Landing.propTypes = {};
 
-Landing.defaultProps = {
-  children: null,
-};
+Landing.defaultProps = {};
 
 export default Landing;
