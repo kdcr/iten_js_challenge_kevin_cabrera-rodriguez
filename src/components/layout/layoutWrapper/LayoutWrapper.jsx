@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Header from '../header';
+import Footer from '../footer';
 
 const WrapperContainer = styled.div`
   display: flex;
@@ -17,7 +18,7 @@ const LayoutWrapper = (props) => {
     <WrapperContainer>
       <Header />
       {children}
-      {/* TODO: add footer here when implemented */}
+      <Footer />
     </WrapperContainer>
   );
 };
