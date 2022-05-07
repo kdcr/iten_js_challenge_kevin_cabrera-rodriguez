@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
+import LinkButton from '../../atomic/linkButton';
 
 import { DeviceSizes } from '../../../utils/Constants';
 
@@ -28,24 +29,12 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <span
-        onKeyPress={() => navigate('/')}
-        tabIndex={0}
-        style={{ cursor: 'pointer' }}
-        role="link"
-        onClick={() => navigate('/')}
-      >
+      <LinkButton onClick={() => navigate('/')}>
         <Label size="subtitle">{t('appTitle')}</Label>
-      </span>
-      <span
-        onKeyPress={() => navigate('/classrooms')}
-        tabIndex={0}
-        style={{ cursor: 'pointer' }}
-        role="link"
-        onClick={() => navigate('/classrooms')}
-      >
+      </LinkButton>
+      <LinkButton onClick={() => navigate('/classrooms')}>
         <Label size="subtitle">{t('classrooms')}</Label>
-      </span>
+      </LinkButton>
     </HeaderContainer>
   );
 };
