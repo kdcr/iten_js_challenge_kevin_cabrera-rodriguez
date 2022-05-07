@@ -15,11 +15,13 @@
     "lint": "eslint '**/*.js' --ignore-pattern node_modules/"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.1",
     "i18next": "^21.7.1",
     "prop-types": "^15.8.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-i18next": "^11.16.9",
+    "react-redux": "^8.0.1",
     "react-router-dom": "6",
     "styled-components": "^5.3.5"
   },
