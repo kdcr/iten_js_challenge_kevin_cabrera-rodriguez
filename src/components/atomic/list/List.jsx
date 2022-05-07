@@ -51,9 +51,14 @@ const List = (props) => {
       <ListContent>
         {data.map((item) => (
           <ListItem>
-            {Object.entries(item).map((column) => (
-              <Label style={{ ...generateLabelStyle(column[0]) }}>{column[1]}</Label>
-            ))}
+            {Object.entries(item).map((column) => {
+              if (typeof column[1] === 'string') {
+                return <Label style={{ ...generateLabelStyle(column[0]) }}>{column[1]}</Label>;
+              }
+              return React.cloneElement(column[1], {
+                style: { ...generateLabelStyle(column[0]) },
+              });
+            })}
           </ListItem>
         ))}
       </ListContent>

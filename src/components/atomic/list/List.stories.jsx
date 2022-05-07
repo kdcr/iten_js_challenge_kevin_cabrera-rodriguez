@@ -2,6 +2,7 @@
 import React from 'react';
 
 import List from '.';
+import LinkButton from '../linkButton';
 
 export default {
   title: 'List',
@@ -21,22 +22,28 @@ export const Default = Template.bind({});
 Default.args = {
   heads: [
     {
-      width: '33%',
+      width: '25%',
       align: 'left',
       label: 'Name',
       dataName: 'name',
     },
     {
-      width: '33%',
+      width: '35%',
       align: 'left',
       label: 'Gender',
       dataName: 'gender',
     },
     {
-      width: '34%',
-      align: 'right',
+      width: '35%',
+      align: 'left',
       label: 'Birth',
       dataName: 'birth',
+    },
+    {
+      width: '5%',
+      align: 'right',
+      label: 'Actions',
+      dataName: 'actions',
     },
   ],
   data: [
@@ -44,11 +51,15 @@ Default.args = {
       name: 'Justine Bloomberg',
       gender: 'Female',
       birth: '11-02-2016',
+      // eslint-disable-next-line no-alert
+      actions: <LinkButton onClick={() => window.alert('clicked on Justine!')}>View</LinkButton>,
     },
     {
       name: 'Sarah Liberman',
       gender: 'Female',
       birth: '11-02-2016',
+      // eslint-disable-next-line no-alert
+      actions: <LinkButton onClick={() => window.alert('clicked on Sarah!')}>View</LinkButton>,
     },
   ],
 };
