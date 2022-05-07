@@ -16,9 +16,11 @@
         "ObjectExpression": { "consistent": true, "multiline": true },
         "ObjectPattern": { "consistent": true, "multiline": true },
         "ImportDeclaration": "never",
-        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+        "ExportDeclaration": { "multiline": true, "minProperties": 4 }
       }
-    ]
+    ],
+    "implicit-arrow-linebreak": [0],
+    "function-paren-newline": [0]
   },
   "env": {
     "browser": true
