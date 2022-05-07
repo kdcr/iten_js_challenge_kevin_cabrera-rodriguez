@@ -2,5 +2,6 @@
   "welcome": "Bienvenido al gestor de clases de IteNlearning",
   "appTitle": "IteNlearning Challenge",
   "classrooms": "Clases",
-  "developedBy": "Desarrollado por"
+  "developedBy": "Desarrollado por",
+  "addClassroom": "Añadir clase"
 }
