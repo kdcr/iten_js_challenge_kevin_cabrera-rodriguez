@@ -9,10 +9,7 @@ const TextSizes = {
   SMALL: 'small',
 };
 
-const TextColors = {
-  PRIMARY: 'primary',
-  SECONDARY: 'secondary',
-};
+const TextColors = { PRIMARY: 'primary', SECONDARY: 'secondary' };
 
 // prettier-ignore
 const LabelContainer = styled.span`
@@ -25,10 +22,10 @@ const LabelContainer = styled.span`
 `;
 
 const Label = (props) => {
-  const { children, size, color } = props;
+  const { children, size, color, style, className } = props;
 
   return (
-    <LabelContainer size={size} color={color}>
+    <LabelContainer size={size} color={color} style={style} className={className}>
       {children}
     </LabelContainer>
   );
@@ -38,12 +35,16 @@ Label.propTypes = {
   children: PropTypes.string,
   size: PropTypes.oneOf(Object.values(TextSizes)),
   color: PropTypes.oneOf(Object.values(TextColors)),
+  style: PropTypes.shape({}),
+  className: PropTypes.string,
 };
 
 Label.defaultProps = {
   children: null,
   size: TextSizes.NORMAL,
   color: TextColors.PRIMARY,
+  style: {},
+  className: '',
 };
 
 export default Label;

@@ -9,7 +9,16 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "max-len": ["error", { "code": 100, "ignoreStrings": true }]
+    "max-len": ["error", { "code": 100, "ignoreStrings": true }],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": { "consistent": true, "multiline": true },
+        "ObjectPattern": { "consistent": true, "multiline": true },
+        "ImportDeclaration": "never",
+        "ExportDeclaration": { "multiline": true, "minProperties": 3 }
+      }
+    ]
   },
   "env": {
     "browser": true
