@@ -17,13 +17,13 @@ const Container = styled.button`
   width: 210px;
   border: 0;
   border-radius: 4px;
-
-  cursor: pointer;
+  
+  cursor: ${({ disabled }) => (disabled ? 'not-allowed' : 'pointer')};
   color: ${({ type }) => (type === ButtonTypes.NORMAL ? 'var(--color-fg)' : 'var(--color-fg-alt)')};
   ${({ disabled, type }) => (disabled ? '' : `
     background-color: ${(type === ButtonTypes.NORMAL ? 'var(--color-accent)' : 'var(--color-warning)')};
   `)}
-  background-color: ${({ disabled }) => disabled && 'var(--color-fg-light)'};
+  background-color: ${({ disabled }) => disabled && 'var(--color-bg-alt)'};
 `;
 
 const Button = (props) => {

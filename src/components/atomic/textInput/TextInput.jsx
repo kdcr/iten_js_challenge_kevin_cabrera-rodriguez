@@ -12,18 +12,27 @@ const StyledInput = styled.input`
 `;
 
 const TextInput = (props) => {
-  const { onChange, className, style } = props;
-  return <StyledInput onChange={onChange} className={className} style={style} />;
+  const { onChange, placeholder, className, style } = props;
+  return (
+    <StyledInput
+      onChange={onChange}
+      placeholder={placeholder}
+      className={className}
+      style={style}
+    />
+  );
 };
 
 TextInput.propTypes = {
   onChange: PropTypes.func,
+  placeholder: PropTypes.func,
   className: PropTypes.string,
   style: PropTypes.shape({}),
 };
 
 TextInput.defaultProps = {
   onChange: () => {},
+  placeholder: '',
   className: '',
   style: {},
 };

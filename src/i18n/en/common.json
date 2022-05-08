@@ -14,7 +14,7 @@
   "actions": "Actions",
   "noClassrooms": "There isn't any classroom",
   "gender": "Gender",
-  "birth": "Date fo birth",
+  "birth": "Date of birth",
   "email": "Email",
   "gender_m": "Male",
   "gender_f": "Female",
@@ -26,5 +26,7 @@
   "add": "Add",
   "errorsFoundIn": "Found errors in these fields",
   "primaryEd": "Primary school",
-  "secondaryEd": "Secondary school"
+  "secondaryEd": "Secondary school",
+  "addNewStudent": "Add new student",
+  "selectGender": "Select gender"
 }
