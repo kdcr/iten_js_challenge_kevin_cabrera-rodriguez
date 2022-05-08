@@ -2,20 +2,20 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  value: 0,
+  value: '',
 };
 
-export const selectedClassRoomSlice = createSlice({
-  name: 'selectedClassroom',
+export const lastUpdateSlice = createSlice({
+  name: 'lastUpdate',
   initialState,
   reducers: {
-    setClassroom: (state, { payload }) => {
+    setLastUpdate: (state, { payload }) => {
       state.value = payload;
     },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { setClassroom } = selectedClassRoomSlice.actions;
+export const { setLastUpdate } = lastUpdateSlice.actions;
 
-export default selectedClassRoomSlice.reducer;
+export default lastUpdateSlice.reducer;

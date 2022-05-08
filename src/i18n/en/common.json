@@ -3,5 +3,14 @@
   "appTitle": "IteNlearning Challenge",
   "classrooms": "Classrooms",
   "developedBy": "Developed by",
-  "addClassroom": "Add Classroom"
+  "addClassroom": "Add Classroom",
+  "view": "View",
+  "delete": "Delete",
+  "name": "Name",
+  "level": "Level",
+  "teacherName": "Teacher name",
+  "teacherEmail": "Teacher email",
+  "students": "Students",
+  "actions": "Actions",
+  "noClassrooms": "There isn't any classroom"
 }
