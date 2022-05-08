@@ -8,6 +8,7 @@ import { checkEmail, checkPersonName, checkClassroomName } from '../../../utils/
 import Select from '../../atomic/select';
 import Button from '../../atomic/button';
 import { createClassrooms } from '../../../api/Classrooms';
+import { DeviceSizes } from '../../../utils/Constants';
 
 const Container = styled.div`
   display: flex;
@@ -20,6 +21,15 @@ const Container = styled.div`
 `;
 
 const FormContainer = styled.div`
+  @media (max-width: ${DeviceSizes.sm}) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 0px;
+    column-gap: 0px;
+    width: 100%;
+  }
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -31,6 +41,10 @@ const FormContainer = styled.div`
 `;
 
 const FormItem = styled.div`
+  @media (max-width: ${DeviceSizes.sm}) {
+    width: 90%;
+  }
+
   display: flex;
   flex-direction: column;
   gap: 5px;
