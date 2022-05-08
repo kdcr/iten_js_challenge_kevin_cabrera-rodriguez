@@ -12,5 +12,13 @@
   "teacherEmail": "Email prof.",
   "students": "Estudiantes",
   "actions": "Acciones",
-  "noClassrooms": "No se ha creado ninguna clase"
+  "noClassrooms": "No se ha creado ninguna clase",
+  "gender": "Género",
+  "birth": "Fecha de nacimiento",
+  "email": "Email",
+  "gender_m": "Hombre",
+  "gender_f": "Mujer",
+  "deleteClassroom": "Eliminar clase",
+  "addStudent": "Añadir estudiante",
+  "noStudents": "No students found in this classroom"
 }

@@ -5,7 +5,7 @@ const initialState = {
   value: 0,
 };
 
-export const selectedClassRoomSlice = createSlice({
+export const selectedClassroomSlice = createSlice({
   name: 'selectedClassroom',
   initialState,
   reducers: {
@@ -16,6 +16,6 @@ export const selectedClassRoomSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setClassroom } = selectedClassRoomSlice.actions;
+export const { setClassroom } = selectedClassroomSlice.actions;
 
-export default selectedClassRoomSlice.reducer;
+export default selectedClassroomSlice.reducer;

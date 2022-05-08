@@ -12,5 +12,13 @@
   "teacherEmail": "Teacher email",
   "students": "Students",
   "actions": "Actions",
-  "noClassrooms": "There isn't any classroom"
+  "noClassrooms": "There isn't any classroom",
+  "gender": "Gender",
+  "birth": "Date fo birth",
+  "email": "Email",
+  "gender_m": "Male",
+  "gender_f": "Female",
+  "deleteClassroom": "Delete classroom",
+  "addStudent": "Add student",
+  "noStudents": "No students found in this classroom"
 }

@@ -88,6 +88,10 @@ const ClassroomList = () => {
     loadClassroomData();
   }, [lastUpdate]);
 
+  useEffect(() => {
+    loadClassroomData();
+  }, []);
+
   const ListHeaders = [
     {
       width: '16%',
