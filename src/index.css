@@ -2,10 +2,20 @@ body {
   margin: 0;
 }
 
+@font-face {
+  font-family: Roboto;
+  src: url('./assets/font/Roboto-Regular.ttf');
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url('./assets/font/Roboto-Bold.ttf');
+}
+
 body * {
   font-size: 16px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: Roboto;
 }
 
 .light-theme {
