@@ -11,5 +11,6 @@
   "teacherName": "Nombre prof.",
   "teacherEmail": "Email prof.",
   "students": "Estudiantes",
-  "actions": "Acciones"
+  "actions": "Acciones",
+  "noClassrooms": "No se ha creado ninguna clase"
 }

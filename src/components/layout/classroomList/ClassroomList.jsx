@@ -131,11 +131,25 @@ const ClassroomList = () => {
         {t('classrooms')}
       </Label>
       <Button style={{ gridColumnStart: 2, gridRowStart: 1 }}>{t('addClassroom')}</Button>
-      <List
-        style={{ gridColumnStart: 1, gridRowStart: 2, gridColumn: '1 / span 2' }}
-        data={data}
-        heads={ListHeaders}
-      />
+      {data?.length > 0 ? (
+        <List
+          style={{ gridColumnStart: 1, gridRowStart: 2, gridColumn: '1 / span 2' }}
+          data={data}
+          heads={ListHeaders}
+        />
+      ) : (
+        <Label
+          size="subtitle"
+          style={{
+            gridColumnStart: 1,
+            gridRowStart: 2,
+            gridColumn: '1 / span 2',
+            textAlign: 'center',
+          }}
+        >
+          {t('noClassrooms')}
+        </Label>
+      )}
     </Container>
   );
 };

@@ -11,5 +11,6 @@
   "teacherName": "Teacher name",
   "teacherEmail": "Teacher email",
   "students": "Students",
-  "actions": "Actions"
+  "actions": "Actions",
+  "noClassrooms": "There isn't any classroom"
 }
