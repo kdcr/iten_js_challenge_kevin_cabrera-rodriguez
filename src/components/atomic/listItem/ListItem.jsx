@@ -10,7 +10,7 @@ const ItemContainer = styled.div`
   height: 30px;
   padding: 0 2rem 0 2rem;
 
-  border: 1px solid var(--color-fg-light);
+  border: 1px solid var(--color-border);
   border-radius: 4px;
 `;
 
