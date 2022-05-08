@@ -1,11 +1,14 @@
 import store from '../redux/store';
+import MockupData from './MockupData.json';
 
 const writeData = (data) => {
   localStorage.itenData = JSON.stringify(data);
 };
 
 const loadData = () => {
-  store.dispatch({ type: 'lastUpdate/setLastUpdate', payload: Date.now() });
+  if (!localStorage.itenData || localStorage.itenData === 'null') {
+    writeData(MockupData);
+  }
   return JSON.parse(localStorage.itenData);
 };
 
@@ -15,4 +18,9 @@ const generateUUID = () =>
     (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
   );
 
-export { writeData, loadData, generateUUID };
+const notifyUpdate = () => {
+  store.dispatch({ type: 'lastUpdate/setLastUpdate', payload: Date.now() });
+};
+
+// eslint-disable-next-line object-curly-newline
+export { writeData, loadData, generateUUID, notifyUpdate };

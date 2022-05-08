@@ -24,10 +24,10 @@ const Container = styled.button`
 `;
 
 const Button = (props) => {
-  const { children, type, onClick } = props;
+  const { children, type, onClick, className, style } = props;
 
   return (
-    <Container onClick={onClick} type={type}>
+    <Container onClick={onClick} type={type} className={className} style={style}>
       {children}
     </Container>
   );
@@ -37,12 +37,16 @@ Button.propTypes = {
   children: PropTypes.node,
   type: PropTypes.oneOf([ButtonTypes.NORMAL, ButtonTypes.WARNING]),
   onClick: PropTypes.func,
+  className: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 Button.defaultProps = {
   children: null,
   type: ButtonTypes.NORMAL,
   onClick: () => {},
+  className: '',
+  style: {},
 };
 
 export default Button;

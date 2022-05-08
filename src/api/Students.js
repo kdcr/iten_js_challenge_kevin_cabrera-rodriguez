@@ -1,4 +1,4 @@
-import { loadData } from './ApiUtils';
+import { loadData, notifyUpdate, writeData } from './ApiUtils';
 
 export const getStudents = (classroomId) => {
   const data = loadData();
@@ -8,4 +8,21 @@ export const getStudents = (classroomId) => {
 
 export const createStudents = () => {};
 
-export const deleteStudent = () => {};
+export const deleteStudent = (studentId, classroomId) => {
+  const data = loadData();
+  const filteredClasrooms = { ...data }.classrooms.filter(
+    (classroom) => classroom.id !== classroomId,
+  );
+  const finalData = {
+    ...data,
+    classrooms: filteredClasrooms,
+  };
+  const editedClassroom = { ...data }.classrooms.find((classroom) => classroom.id === classroomId);
+  editedClassroom.students = { ...editedClassroom }.students.filter(
+    (student) => student.id !== studentId,
+  );
+  if (!finalData.classrooms) finalData.classrooms = [];
+  finalData.classrooms.push(editedClassroom);
+  writeData(finalData);
+  notifyUpdate();
+};
