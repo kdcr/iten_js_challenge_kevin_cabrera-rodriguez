@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 import { deleteClassroom, getClassroomById } from '../../../api/Classrooms';
 import { deleteStudent } from '../../../api/Students';
+import { DeviceSizes } from '../../../utils/Constants';
 
 import Button from '../../atomic/button';
 import Label from '../../atomic/label';
@@ -22,6 +23,12 @@ const Container = styled.div`
 `;
 
 const InnerContainer = styled.div`
+  @media (max-width: ${DeviceSizes.sm}) {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
   display: grid;
   grid-template-columns: auto 210px;
   grid-template-rows: 90px 160px 82px auto;

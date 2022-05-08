@@ -7,6 +7,8 @@ const ItemContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+
   height: 30px;
   padding: 0 2rem 0 2rem;
 
