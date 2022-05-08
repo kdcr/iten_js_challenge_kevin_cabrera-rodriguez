@@ -85,7 +85,7 @@ const ClassroomDetail = () => {
   };
 
   const handleAddStudent = () => {
-    navigate('/addStudent');
+    navigate('/newStudent');
   };
 
   const loadClassroomData = () => {
@@ -95,7 +95,7 @@ const ClassroomDetail = () => {
 
     const students = rawData?.students?.map(({ id, name, gender, birth, email }) => ({
       name,
-      gender: t(`gender_${gender}`),
+      gender: t(`${gender}`),
       birth,
       email,
       actions: (

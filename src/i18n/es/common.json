@@ -26,5 +26,7 @@
   "add": "Añadir",
   "errorsFoundIn": "Encontrados errores en los campos",
   "primaryEd": "Educación primaria",
-  "secondaryEd": "Educación secundaria"
+  "secondaryEd": "Educación secundaria",
+  "addNewStudent": "Añadir nuevo estudiante",
+  "selectGender": "Selecciona género"
 }

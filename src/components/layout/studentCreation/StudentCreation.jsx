@@ -1,13 +1,14 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Label from '../../atomic/label';
 import TextInput from '../../atomic/textInput';
-import { checkEmail, checkPersonName, checkClassroomName } from '../../../utils/FormUtils';
+import { checkEmail, checkPersonName, checkDate } from '../../../utils/FormUtils';
 import Select from '../../atomic/select';
 import Button from '../../atomic/button';
-import { createClassrooms } from '../../../api/Classrooms';
+import { createStudent } from '../../../api/Students';
 
 const Container = styled.div`
   display: flex;
@@ -38,51 +39,56 @@ const FormItem = styled.div`
   width: ${({ width }) => width};
 `;
 
-const ClassroomCreation = () => {
+const StudentCreation = () => {
   const { t } = useTranslation('common');
-
   const navigate = useNavigate();
+
+  const selectedClassroom = useSelector((state) => state.selectedClassroom?.value);
+
+  useEffect(() => {
+    if (!selectedClassroom) navigate('/classrooms');
+  }, []);
 
   const [formData, setFormData] = useState({
     name: null,
-    teacherName: null,
-    teacherEmail: null,
-    level: null,
+    birth: null,
+    email: null,
+    gender: null,
   });
-  const [errors, setErrors] = useState({ name: false, teacherName: false, teacherEmail: false });
+  const [errors, setErrors] = useState({ name: false, birth: false, email: false });
 
-  const handleCreateClassroom = () => {
-    createClassrooms(formData);
-    navigate('/classrooms');
+  const handleCreateStudent = () => {
+    createStudent(formData, selectedClassroom);
+    navigate('/classroomDetail');
   };
 
   const handleFormData = (data, type) => {
     switch (type) {
       case 'name':
-        if (checkClassroomName(data)) {
+        if (checkPersonName(data)) {
           setFormData({ ...formData, name: data });
           setErrors({ ...errors, name: false });
         } else {
           setErrors({ ...errors, name: true });
         }
         break;
-      case 'level':
-        setFormData({ ...formData, level: data });
+      case 'gender':
+        setFormData({ ...formData, gender: data });
         break;
-      case 'teacherName':
-        if (checkPersonName(data)) {
-          setFormData({ ...formData, teacherName: data });
-          setErrors({ ...errors, teacherName: false });
+      case 'birth':
+        if (checkDate(data)) {
+          setFormData({ ...formData, birth: data });
+          setErrors({ ...errors, birth: false });
         } else {
-          setErrors({ ...errors, teacherName: true });
+          setErrors({ ...errors, birth: true });
         }
         break;
-      case 'teacherEmail':
+      case 'email':
         if (checkEmail(data)) {
-          setFormData({ ...formData, teacherEmail: data });
-          setErrors({ ...errors, teacherEmail: false });
+          setFormData({ ...formData, email: data });
+          setErrors({ ...errors, email: false });
         } else {
-          setErrors({ ...errors, teacherEmail: true });
+          setErrors({ ...errors, email: true });
         }
         break;
 
@@ -93,32 +99,36 @@ const ClassroomCreation = () => {
 
   return (
     <Container>
-      <Label size="title">{t('addNewClassroom')}</Label>
+      <Label size="title">{t('addNewStudent')}</Label>
       <FormContainer>
         <FormItem width="300px">
-          <Label>{t('classroomName')}</Label>
+          <Label>{t('name')}</Label>
           <TextInput onChange={(e) => handleFormData(e.target.value, 'name')} />
         </FormItem>
         <FormItem width="150px">
-          <Label>{t('level')}</Label>
+          <Label>{t('gender')}</Label>
           <Select
+            placeholder={t('selectGender')}
             style={{ width: '145px' }}
-            selectedOption={formData.level}
-            options={[t('primaryEd'), t('secondaryEd')]}
-            onChange={(value) => handleFormData(value, 'level')}
+            selectedOption={formData.gender}
+            options={[t('gender_m'), t('gender_f')]}
+            onChange={(value) => handleFormData(value, 'gender')}
           />
         </FormItem>
-        <FormItem width="225px">
-          <Label>{t('teacherName')}</Label>
-          <TextInput onChange={(e) => handleFormData(e.target.value, 'teacherName')} />
+        <FormItem width="120px">
+          <Label>{t('birth')}</Label>
+          <TextInput
+            placeholder="DD-MM-YYYY"
+            onChange={(e) => handleFormData(e.target.value, 'birth')}
+          />
         </FormItem>
-        <FormItem width="225px">
-          <Label>{t('teacherEmail')}</Label>
-          <TextInput onChange={(e) => handleFormData(e.target.value, 'teacherEmail')} />
+        <FormItem width="330px">
+          <Label>{t('email')}</Label>
+          <TextInput onChange={(e) => handleFormData(e.target.value, 'email')} />
         </FormItem>
       </FormContainer>
       <Button
-        onClick={handleCreateClassroom}
+        onClick={handleCreateStudent}
         disabled={
           // eslint-disable-next-line operator-linebreak
           Object.entries(errors).find((entry) => entry[1]) ||
@@ -140,4 +150,4 @@ const ClassroomCreation = () => {
   );
 };
 
-export default ClassroomCreation;
+export default StudentCreation;

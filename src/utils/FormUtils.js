@@ -8,6 +8,18 @@ const checkClassroomName = (name = '') => {
   return name.length < 15;
 };
 
+const checkDate = (date = '') => {
+  if (date === '') return true;
+  if (/^\d\d-\d\d-\d\d\d\d$/.test(date)) {
+    const day = parseInt(date.split('-')[0], 10);
+    const month = parseInt(date.split('-')[1], 10);
+    const year = parseInt(date.split('-')[2], 10);
+    if (month > 12 || month < 1) return false;
+    return Date.parse(year, month - 1, day) > 0;
+  }
+  return false;
+};
+
 const checkEmail = (email = '') => {
   if (email === '') return true;
   return email.match(
@@ -16,4 +28,5 @@ const checkEmail = (email = '') => {
   );
 };
 
-export { checkPersonName, checkEmail, checkClassroomName };
+// eslint-disable-next-line object-curly-newline
+export { checkPersonName, checkEmail, checkClassroomName, checkDate };

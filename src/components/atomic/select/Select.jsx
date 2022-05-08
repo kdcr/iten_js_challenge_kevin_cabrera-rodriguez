@@ -64,6 +64,8 @@ const Arrow = styled.div`
   border-right: 8px solid transparent;
 
   border-top: 10px solid var(--color-input-bg);
+
+  transform: ${({ open }) => (open ? 'scaleY(-1)' : 'scaleY(1)')};
 `;
 
 const Select = (props) => {
@@ -106,7 +108,7 @@ const Select = (props) => {
         ))}
       </SelectDropDown>
       <ArrowContainer>
-        <Arrow />
+        <Arrow open={isOpen} />
       </ArrowContainer>
     </Container>
   );
