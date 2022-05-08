@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { deleteClassroom, getClassrooms } from '../../../api/Classrooms';
-import { setClassRoom } from '../../../redux/reducers/selectedClassroom';
+import { setClassroom } from '../../../redux/reducers/selectedClassroom';
 
 import Button from '../../atomic/button';
 import Label from '../../atomic/label';
@@ -43,20 +43,22 @@ const ClassroomList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const lastUpdate = useSelector((state) => state.lastUpdate?.value);
+
   const [data, setData] = useState(null);
 
   const handleViewClass = (classroomId) => {
-    dispatch(setClassRoom(classroomId));
+    dispatch(setClassroom(classroomId));
     navigate('/classroomDetail');
   };
 
   const handleDeleteClass = (classroomId) => {
     deleteClassroom(classroomId);
     // eslint-disable-next-line no-use-before-define
-    loadData();
+    loadClassroomData();
   };
 
-  const loadData = () => {
+  const loadClassroomData = () => {
     const rawData = getClassrooms();
 
     setData(
@@ -83,8 +85,8 @@ const ClassroomList = () => {
   };
 
   useEffect(() => {
-    loadData();
-  }, []);
+    loadClassroomData();
+  }, [lastUpdate]);
 
   const ListHeaders = [
     {

@@ -1,8 +1,13 @@
+import store from '../redux/store';
+
 const writeData = (data) => {
   localStorage.itenData = JSON.stringify(data);
 };
 
-const loadData = () => JSON.parse(localStorage.itenData);
+const loadData = () => {
+  store.dispatch({ type: 'lastUpdate/setLastUpdate', payload: Date.now() });
+  return JSON.parse(localStorage.itenData);
+};
 
 const generateUUID = () =>
   ([1e7] + -1e3 + -4e3 + -8e3 + -1e11).replace(/[018]/g, (c) =>
