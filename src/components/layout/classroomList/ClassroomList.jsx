@@ -132,7 +132,12 @@ const ClassroomList = () => {
       <Label size="title" style={{ gridColumnStart: 1, gridRowStart: 1 }}>
         {t('classrooms')}
       </Label>
-      <Button style={{ gridColumnStart: 2, gridRowStart: 1 }}>{t('addClassroom')}</Button>
+      <Button
+        onClick={() => navigate('/newClassroom')}
+        style={{ gridColumnStart: 2, gridRowStart: 1 }}
+      >
+        {t('addClassroom')}
+      </Button>
       {data?.length > 0 ? (
         <List
           style={{ gridColumnStart: 1, gridRowStart: 2, gridColumn: '1 / span 2' }}
