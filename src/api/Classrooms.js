@@ -1,4 +1,4 @@
-import { loadData, notifyUpdate, writeData } from './ApiUtils';
+import { generateUUID, loadData, notifyUpdate, writeData } from './ApiUtils';
 
 export const getClassrooms = () => {
   const data = loadData();
@@ -10,7 +10,21 @@ export const getClassroomById = (classroomId) => {
   return data?.classrooms?.find((classroom) => classroom.id === classroomId);
 };
 
-export const createClassrooms = () => {};
+export const createClassrooms = (newClassroom) => {
+  const data = loadData();
+  data.classrooms?.push({
+    id: generateUUID(),
+    name: newClassroom.name,
+    level: newClassroom.level,
+    teacher: {
+      name: newClassroom.teacherName,
+      email: newClassroom.teacherEmail,
+    },
+    students: [],
+  });
+  writeData(data);
+  notifyUpdate();
+};
 
 export const deleteClassroom = (classroomId) => {
   const data = loadData();

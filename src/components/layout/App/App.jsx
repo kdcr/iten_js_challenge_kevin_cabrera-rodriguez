@@ -9,6 +9,7 @@ import { writeData } from '../../../api/ApiUtils';
 import MockupData from '../../../api/MockupData.json';
 import ClassroomList from '../classroomList/ClassroomList';
 import ClassroomDetail from '../classroomDetail/ClasroomDetail';
+import ClassroomCreation from '../clasroomCreation/ClassroomCreation';
 
 const App = (props) => {
   const { theme } = props;
@@ -47,6 +48,15 @@ const App = (props) => {
               // eslint-disable-next-line react/jsx-wrap-multilines
               <LayoutWrapper>
                 <ClassroomDetail />
+              </LayoutWrapper>
+            }
+          />
+          <Route
+            path="/newClassroom"
+            element={
+              // eslint-disable-next-line react/jsx-wrap-multilines
+              <LayoutWrapper>
+                <ClassroomCreation />
               </LayoutWrapper>
             }
           />

@@ -20,14 +20,23 @@ const Container = styled.button`
 
   cursor: pointer;
   color: ${({ type }) => (type === ButtonTypes.NORMAL ? 'var(--color-fg)' : 'var(--color-fg-alt)')};
-  background-color: ${({ type }) => (type === ButtonTypes.NORMAL ? 'var(--color-accent)' : 'var(--color-warning)')};
+  ${({ disabled, type }) => (disabled ? '' : `
+    background-color: ${(type === ButtonTypes.NORMAL ? 'var(--color-accent)' : 'var(--color-warning)')};
+  `)}
+  background-color: ${({ disabled }) => disabled && 'var(--color-fg-light)'};
 `;
 
 const Button = (props) => {
-  const { children, type, onClick, className, style } = props;
+  const { children, type, onClick, disabled, className, style } = props;
 
   return (
-    <Container onClick={onClick} type={type} className={className} style={style}>
+    <Container
+      onClick={!disabled && onClick}
+      type={type}
+      disabled={disabled}
+      className={className}
+      style={style}
+    >
       {children}
     </Container>
   );
@@ -37,6 +46,7 @@ Button.propTypes = {
   children: PropTypes.node,
   type: PropTypes.oneOf([ButtonTypes.NORMAL, ButtonTypes.WARNING]),
   onClick: PropTypes.func,
+  disabled: PropTypes.bool,
   className: PropTypes.string,
   style: PropTypes.shape({}),
 };
@@ -45,6 +55,7 @@ Button.defaultProps = {
   children: null,
   type: ButtonTypes.NORMAL,
   onClick: () => {},
+  disabled: false,
   className: '',
   style: {},
 };
