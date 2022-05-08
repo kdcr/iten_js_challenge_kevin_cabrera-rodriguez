@@ -28,5 +28,11 @@
   "primaryEd": "Primary school",
   "secondaryEd": "Secondary school",
   "addNewStudent": "Add new student",
-  "selectGender": "Select gender"
+  "selectGender": "Select gender",
+  "es": "Español",
+  "en": "English",
+  "darkTheme": "Dark theme",
+  "reloadMockupData": "Reload mock-up data",
+  "settings": "Settings",
+  "experimental": "Experimental"
 }

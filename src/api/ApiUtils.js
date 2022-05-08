@@ -22,5 +22,10 @@ const notifyUpdate = () => {
   store.dispatch({ type: 'lastUpdate/setLastUpdate', payload: Date.now() });
 };
 
+const reloadMockUp = () => {
+  writeData(MockupData);
+  notifyUpdate();
+};
+
 // eslint-disable-next-line object-curly-newline
-export { writeData, loadData, generateUUID, notifyUpdate };
+export { writeData, loadData, generateUUID, notifyUpdate, reloadMockUp };

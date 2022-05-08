@@ -38,7 +38,7 @@ const SelectItem = styled.div`
   padding: 0.5rem;
 
   &:hover {
-    background-color: var(--color-border);
+    background-color: var(--color-fg-alt);
   }
   cursor: pointer;
   border-top: ${({ index }) => (index > 0 ? '1px solid var(--color-border)' : '0')};
