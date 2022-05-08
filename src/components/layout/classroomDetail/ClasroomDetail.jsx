@@ -14,12 +14,24 @@ import List from '../../atomic/list';
 import { TrashIcon } from '../../icons';
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;
+
+const InnerContainer = styled.div`
   display: grid;
   grid-template-columns: auto 210px;
   grid-template-rows: 90px 160px 82px auto;
 
+  align-items: baseline;
+
+  width: 960px;
+  margin-top: 56px;
+
   height: 100%;
-  padding: 56px 240px 0 240px;
 `;
 
 const ActionsContainer = styled.div`
@@ -151,59 +163,61 @@ const ClassroomDetail = () => {
 
   return (
     <Container>
-      <Label size="title" style={{ gridColumnStart: 1, gridRowStart: 1 }}>
-        {data?.name}
-      </Label>
-      <ClassroomInfo>
-        <InfoLabels>
-          <Label style={{ fontWeight: 'bold' }}>{`${t('level')}:`}</Label>
-          <Label>{data?.level}</Label>
-        </InfoLabels>
-        <InfoLabels>
-          <Label style={{ fontWeight: 'bold' }}>{`${t('teacherName')}:`}</Label>
-          <Label>{data?.teacherName}</Label>
-        </InfoLabels>
-        <InfoLabels>
-          <Label style={{ fontWeight: 'bold' }}>{`${t('teacherEmail')}:`}</Label>
-          <Label>{data?.teacherEmail}</Label>
-        </InfoLabels>
-        <InfoLabels>
-          <Label style={{ fontWeight: 'bold' }}>{`${t('students')}:`}</Label>
-          <Label>{data?.students?.length}</Label>
-        </InfoLabels>
-      </ClassroomInfo>
-      <Button
-        onClick={() => handleDeleteClass(data.id)}
-        style={{ gridColumnStart: 2, gridRowStart: 1 }}
-        type="warning"
-      >
-        {t('deleteClassroom')}
-      </Button>
-      <Label size="subtitlelarge" style={{ gridColumnStart: 1, gridRowStart: 3 }}>
-        {t('students')}
-      </Label>
-      <Button onClick={handleAddStudent} style={{ gridColumnStart: 2, gridRowStart: 3 }}>
-        {t('addStudent')}
-      </Button>
-      {data?.students?.length > 0 ? (
-        <List
-          style={{ gridColumnStart: 1, gridRowStart: 4, gridColumn: '1 / span 2' }}
-          data={data.students}
-          heads={ListHeaders}
-        />
-      ) : (
-        <Label
-          size="subtitle"
-          style={{
-            gridColumnStart: 1,
-            gridRowStart: 4,
-            gridColumn: '1 / span 2',
-            textAlign: 'center',
-          }}
-        >
-          {t('noStudents')}
+      <InnerContainer>
+        <Label size="title" style={{ gridColumnStart: 1, gridRowStart: 1 }}>
+          {data?.name}
         </Label>
-      )}
+        <ClassroomInfo>
+          <InfoLabels>
+            <Label style={{ fontWeight: 'bold' }}>{`${t('level')}:`}</Label>
+            <Label>{t(data?.level)}</Label>
+          </InfoLabels>
+          <InfoLabels>
+            <Label style={{ fontWeight: 'bold' }}>{`${t('teacherName')}:`}</Label>
+            <Label>{data?.teacherName}</Label>
+          </InfoLabels>
+          <InfoLabels>
+            <Label style={{ fontWeight: 'bold' }}>{`${t('teacherEmail')}:`}</Label>
+            <Label>{data?.teacherEmail}</Label>
+          </InfoLabels>
+          <InfoLabels>
+            <Label style={{ fontWeight: 'bold' }}>{`${t('students')}:`}</Label>
+            <Label>{data?.students?.length}</Label>
+          </InfoLabels>
+        </ClassroomInfo>
+        <Button
+          onClick={() => handleDeleteClass(data.id)}
+          style={{ gridColumnStart: 2, gridRowStart: 1 }}
+          type="warning"
+        >
+          {t('deleteClassroom')}
+        </Button>
+        <Label size="subtitlelarge" style={{ gridColumnStart: 1, gridRowStart: 3 }}>
+          {t('students')}
+        </Label>
+        <Button onClick={handleAddStudent} style={{ gridColumnStart: 2, gridRowStart: 3 }}>
+          {t('addStudent')}
+        </Button>
+        {data?.students?.length > 0 ? (
+          <List
+            style={{ gridColumnStart: 1, gridRowStart: 4, gridColumn: '1 / span 2' }}
+            data={data.students}
+            heads={ListHeaders}
+          />
+        ) : (
+          <Label
+            size="subtitle"
+            style={{
+              gridColumnStart: 1,
+              gridRowStart: 4,
+              gridColumn: '1 / span 2',
+              textAlign: 'center',
+            }}
+          >
+            {t('noStudents')}
+          </Label>
+        )}
+      </InnerContainer>
     </Container>
   );
 };

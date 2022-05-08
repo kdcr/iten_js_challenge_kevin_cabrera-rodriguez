@@ -14,13 +14,25 @@ import List from '../../atomic/list';
 import { EyeIcon, TrashIcon } from '../../icons';
 
 const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+`;
+
+const InnerContainer = styled.div`
   display: grid;
   grid-template-columns: auto 210px;
   grid-template-rows: min-content;
   grid-row-gap: 44px;
 
+  align-items: baseline;
+
+  width: 960px;
+  margin-top: 56px;
+
   height: 100%;
-  padding: 56px 240px 0 240px;
 `;
 
 const ActionsContainer = styled.div`
@@ -64,7 +76,7 @@ const ClassroomList = () => {
     setData(
       rawData?.map((classroom) => ({
         name: classroom.name,
-        level: classroom.level,
+        level: t(classroom.level),
         teacherName: classroom.teacher.name,
         teacherEmail: classroom.teacher.email,
         students: `${classroom.students.length}`,
@@ -133,34 +145,36 @@ const ClassroomList = () => {
 
   return (
     <Container>
-      <Label size="title" style={{ gridColumnStart: 1, gridRowStart: 1 }}>
-        {t('classrooms')}
-      </Label>
-      <Button
-        onClick={() => navigate('/newClassroom')}
-        style={{ gridColumnStart: 2, gridRowStart: 1 }}
-      >
-        {t('addClassroom')}
-      </Button>
-      {data?.length > 0 ? (
-        <List
-          style={{ gridColumnStart: 1, gridRowStart: 2, gridColumn: '1 / span 2' }}
-          data={data}
-          heads={ListHeaders}
-        />
-      ) : (
-        <Label
-          size="subtitle"
-          style={{
-            gridColumnStart: 1,
-            gridRowStart: 2,
-            gridColumn: '1 / span 2',
-            textAlign: 'center',
-          }}
-        >
-          {t('noClassrooms')}
+      <InnerContainer>
+        <Label size="title" style={{ gridColumnStart: 1, gridRowStart: 1 }}>
+          {t('classrooms')}
         </Label>
-      )}
+        <Button
+          onClick={() => navigate('/newClassroom')}
+          style={{ gridColumnStart: 2, gridRowStart: 1 }}
+        >
+          {t('addClassroom')}
+        </Button>
+        {data?.length > 0 ? (
+          <List
+            style={{ gridColumnStart: 1, gridRowStart: 2, gridColumn: '1 / span 2' }}
+            data={data}
+            heads={ListHeaders}
+          />
+        ) : (
+          <Label
+            size="subtitle"
+            style={{
+              gridColumnStart: 1,
+              gridRowStart: 2,
+              gridColumn: '1 / span 2',
+              textAlign: 'center',
+            }}
+          >
+            {t('noClassrooms')}
+          </Label>
+        )}
+      </InnerContainer>
     </Container>
   );
 };

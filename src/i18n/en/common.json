@@ -20,5 +20,11 @@
   "gender_f": "Female",
   "deleteClassroom": "Delete classroom",
   "addStudent": "Add student",
-  "noStudents": "No students found in this classroom"
+  "noStudents": "No students found in this classroom",
+  "addNewClassroom": "Add new classroom",
+  "classroomName": "Classroom name",
+  "add": "Add",
+  "errorsFoundIn": "Found errors in these fields",
+  "primaryEd": "Primary school",
+  "secondaryEd": "Secondary school"
 }

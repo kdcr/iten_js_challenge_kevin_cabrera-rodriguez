@@ -20,5 +20,11 @@
   "gender_f": "Mujer",
   "deleteClassroom": "Eliminar clase",
   "addStudent": "Añadir estudiante",
-  "noStudents": "No students found in this classroom"
+  "noStudents": "No students found in this classroom",
+  "addNewClassroom": "Añadir nueva clase",
+  "classroomName": "Nombre clase",
+  "add": "Añadir",
+  "errorsFoundIn": "Encontrados errores en los campos",
+  "primaryEd": "Educación primaria",
+  "secondaryEd": "Educación secundaria"
 }

@@ -3,7 +3,7 @@
     {
       "id": "393be5a4-6147-4f8e-9004-45030e738a6",
       "name": "Classroom 01",
-      "level": "Primary school",
+      "level": "primaryEd",
       "teacher": {
         "name": "EricMayer",
         "email": "eric.mayer@email.com"

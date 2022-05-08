@@ -9,10 +9,10 @@ const Container = styled.div`
   position: relative;
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   height: 33px;
-  width: 200px;
-  padding: 0 0 0 0;
+  padding: 0 0 0 5px;
 
   cursor: pointer;
   background-color: var(--color-input-bg);
@@ -83,6 +83,8 @@ const Select = (props) => {
       onChange={onChange}
       className={className}
       style={style}
+      tabIndex={0}
+      onKeyDown={() => !isOpen && setIsOpen(true)}
     >
       <Label style={{ width: '100%' }}>{selectedOption || placeholder}</Label>
       <SelectDropDown open={isOpen}>
@@ -90,6 +92,13 @@ const Select = (props) => {
           <SelectItem
             key={`select_option_${option}`}
             onClick={() => onChange(option)}
+            onKeyDown={(key) => {
+              if (key.code === 'Enter') {
+                onChange(option);
+                setIsOpen(false);
+              }
+            }}
+            tabIndex={0}
             index={index}
           >
             {t(option)}
