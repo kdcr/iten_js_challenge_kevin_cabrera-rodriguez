@@ -1,0 +1,65 @@
+html {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5em;
+}
+
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background-color: var(--color-accent);
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url('./assets/font/Roboto-Regular.ttf');
+}
+@font-face {
+  font-family: RobotoBold;
+  src: url('./assets/font/Roboto-Bold.ttf');
+}
+
+body * {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Roboto;
+}
+
+.light-theme {
+  --color-bg: #e5e5e5;
+  --color-bg-alt: #c1c1c1;
+  --color-bg-opacity: #c1c1c19f;
+  --color-fg: #000;
+  --color-fg-light: #646464;
+  --color-fg-alt: #fff;
+  --color-accent: #51e0be;
+  --color-warning: #e05151;
+  --color-input-bg: #e3e3e3;
+  --color-border: #d1d0d0;
+}
+
+.dark-theme {
+  --color-bg: #c1c1c1;
+  --color-bg-alt: #646464;
+  --color-bg-opacity: #c1c1c19f;
+  --color-fg: #000;
+  --color-fg-light: #646464;
+  --color-fg-alt: #000;
+  --color-accent: #51e0be;
+  --color-warning: #e05151;
+  --color-input-bg: #c1c1c1;
+  --color-border: #000;
+}

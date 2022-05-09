@@ -1,0 +1,36 @@
+{
+  "classrooms": [
+    {
+      "id": "393be5a4-6147-4f8e-9004-45030e738a6",
+      "name": "Classroom 01",
+      "level": "primaryEd",
+      "teacher": {
+        "name": "EricMayer",
+        "email": "eric.mayer@email.com"
+      },
+      "students": [
+        {
+          "id": "1e62f167-2b08-4b05-b41a-5d8607640c81",
+          "name": "Justine Bloomberg",
+          "gender": "gender_f",
+          "birth": "11-02-2016",
+          "email": "justine.bloomberg@email.com"
+        },
+        {
+          "id": "9fbf5d52-1f70-4078-ba6f-9b6040257ebb",
+          "name": "Robert Rodson",
+          "gender": "gender_m",
+          "birth": "07-12-2015",
+          "email": "robert.rodson@email.com"
+        },
+        {
+          "id": "bb0b2110-83f3-4bad-90ee-fe6304cd038f",
+          "name": "Sarah Liberman",
+          "gender": "gender_f",
+          "birth": "11-02-2016",
+          "email": "sarah.liberman@email.com"
+        }
+      ]
+    }
+  ]
+}
