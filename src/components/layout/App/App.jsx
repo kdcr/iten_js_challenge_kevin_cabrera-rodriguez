@@ -7,8 +7,8 @@ import LayoutWrapper from '../layoutWrapper';
 import { writeData } from '../../../api/ApiUtils';
 import MockupData from '../../../api/MockupData.json';
 import ClassroomList from '../classroomList/ClassroomList';
-import ClassroomDetail from '../classroomDetail/ClasroomDetail';
-import ClassroomCreation from '../clasroomCreation/ClassroomCreation';
+import ClassroomDetail from '../classroomDetail/ClassroomDetail';
+import ClassroomCreation from '../classroomCreation/ClassroomCreation';
 import StudentCreation from '../studentCreation';
 import { setTheme } from '../../../redux/reducers/themeReducer';
 
@@ -22,7 +22,9 @@ const App = () => {
       writeData(MockupData);
     }
     if (localStorage?.darkTheme) {
-      dispatch(setTheme(localStorage.darkTheme));
+      dispatch(setTheme(localStorage.darkTheme === 'true'));
+    } else {
+      dispatch(setTheme(false));
     }
   }, []);
 

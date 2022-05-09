@@ -17,12 +17,12 @@ export const createStudent = (studentData, classroomId) => {
 
 export const deleteStudent = (studentId, classroomId) => {
   const data = loadData();
-  const filteredClasrooms = { ...data }.classrooms.filter(
+  const filteredClassrooms = { ...data }.classrooms.filter(
     (classroom) => classroom.id !== classroomId,
   );
   const finalData = {
     ...data,
-    classrooms: filteredClasrooms,
+    classrooms: filteredClassrooms,
   };
   const editedClassroom = { ...data }.classrooms.find((classroom) => classroom.id === classroomId);
   editedClassroom.students = { ...editedClassroom }.students.filter(

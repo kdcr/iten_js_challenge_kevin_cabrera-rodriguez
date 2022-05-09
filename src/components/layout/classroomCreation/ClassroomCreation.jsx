@@ -8,6 +8,7 @@ import { checkEmail, checkPersonName, checkClassroomName } from '../../../utils/
 import Select from '../../atomic/select';
 import Button from '../../atomic/button';
 import { createClassrooms } from '../../../api/Classrooms';
+import { DeviceSizes } from '../../../utils/Constants';
 
 const Container = styled.div`
   display: flex;
@@ -20,6 +21,14 @@ const Container = styled.div`
 `;
 
 const FormContainer = styled.div`
+  @media (max-width: ${DeviceSizes.sm}) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -31,11 +40,22 @@ const FormContainer = styled.div`
 `;
 
 const FormItem = styled.div`
+  @media (max-width: ${DeviceSizes.sm}) {
+    width: 90%;
+  }
+
   display: flex;
   flex-direction: column;
   gap: 5px;
 
   width: ${({ width }) => width};
+`;
+
+const LevelSelect = styled(Select)`
+  @media (max-width: ${DeviceSizes.sm}) {
+    width: 100%;
+  }
+  width: 145px;
 `;
 
 const ClassroomCreation = () => {
@@ -93,7 +113,9 @@ const ClassroomCreation = () => {
 
   return (
     <Container>
-      <Label size="title">{t('addNewClassroom')}</Label>
+      <Label style={{ textAlign: 'center' }} size="title">
+        {t('addNewClassroom')}
+      </Label>
       <FormContainer>
         <FormItem width="300px">
           <Label>{t('classroomName')}</Label>
@@ -101,8 +123,7 @@ const ClassroomCreation = () => {
         </FormItem>
         <FormItem width="150px">
           <Label>{t('level')}</Label>
-          <Select
-            style={{ width: '145px' }}
+          <LevelSelect
             selectedOption={formData.level}
             options={[t('primaryEd'), t('secondaryEd')]}
             onChange={(value) => handleFormData(value, 'level')}
