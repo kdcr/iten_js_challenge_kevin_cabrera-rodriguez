@@ -7,6 +7,7 @@ import Label from '../label';
 import ListItem from '../listItem';
 
 const ListContainer = styled.div`
+  background-color: var(--color-bg);
   display: flex;
   flex-direction: column;
   gap: 5px;

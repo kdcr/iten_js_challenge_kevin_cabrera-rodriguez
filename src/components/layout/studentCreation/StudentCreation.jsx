@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import Label from '../../atomic/label';
 import TextInput from '../../atomic/textInput';
@@ -9,6 +9,9 @@ import { checkEmail, checkPersonName, checkDate } from '../../../utils/FormUtils
 import Select from '../../atomic/select';
 import Button from '../../atomic/button';
 import { createStudent } from '../../../api/Students';
+import { DeviceSizes } from '../../../utils/Constants';
+import { getClassroomById } from '../../../api/Classrooms';
+import { setClassroom } from '../../../redux/reducers/selectedClassroom';
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +24,14 @@ const Container = styled.div`
 `;
 
 const FormContainer = styled.div`
+  @media (max-width: ${DeviceSizes.sm}) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+  }
+
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -36,17 +47,33 @@ const FormItem = styled.div`
   flex-direction: column;
   gap: 5px;
 
+  @media (max-width: ${DeviceSizes.sm}) {
+    width: 90%;
+  }
+
   width: ${({ width }) => width};
+`;
+
+const GenderSelect = styled(Select)`
+  @media (max-width: ${DeviceSizes.sm}) {
+    width: 100%;
+  }
+  width: 145px;
 `;
 
 const StudentCreation = () => {
   const { t } = useTranslation('common');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const selectedClassroom = useSelector((state) => state.selectedClassroom?.value);
 
   useEffect(() => {
-    if (!selectedClassroom) navigate('/classrooms');
+    if (!selectedClassroom && getClassroomById(localStorage.selectedClassroom)) {
+      dispatch(setClassroom(localStorage.selectedClassroom));
+    } else if (!selectedClassroom) {
+      navigate('/classrooms');
+    }
   }, []);
 
   const [formData, setFormData] = useState({
@@ -107,9 +134,8 @@ const StudentCreation = () => {
         </FormItem>
         <FormItem width="150px">
           <Label>{t('gender')}</Label>
-          <Select
+          <GenderSelect
             placeholder={t('selectGender')}
-            style={{ width: '145px' }}
             selectedOption={formData.gender}
             options={[t('gender_m'), t('gender_f')]}
             onChange={(value) => handleFormData(value, 'gender')}

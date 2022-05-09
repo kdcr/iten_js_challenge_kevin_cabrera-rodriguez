@@ -16,10 +16,11 @@ const HeaderContainer = styled.div`
 
   background-color: var(--color-accent);
 
-  height: 50px;
-  @media (min-width: ${DeviceSizes.md}) {
-    height: 90px;
-    padding: 0 25px 0 25px;
+  height: 90px;
+  padding: 0 25px 0 25px;
+
+  @media (max-width: ${DeviceSizes.sm}) {
+    height: 75px;
   }
 `;
 

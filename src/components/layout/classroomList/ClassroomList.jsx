@@ -18,7 +18,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
   height: 100%;
 `;
 
@@ -55,6 +55,15 @@ const ActionLink = styled(LinkButton)`
   align-items: center;
   justify-content: center;
   gap: 5px;
+`;
+
+const ListContainer = styled.div`
+  grid-column-start: 1;
+  grid-row-start: 2;
+  grid-column: 1 / span 2;
+  overflow-x: auto;
+  max-width: 98vw;
+  min-width: 0px;
 `;
 
 const ClassroomList = () => {
@@ -163,11 +172,15 @@ const ClassroomList = () => {
           {t('addClassroom')}
         </Button>
         {data?.length > 0 ? (
-          <List
-            style={{ gridColumnStart: 1, gridRowStart: 2, gridColumn: '1 / span 2' }}
-            data={data}
-            heads={ListHeaders}
-          />
+          <ListContainer className="scroll">
+            <List
+              style={{
+                width: '960px',
+              }}
+              data={data}
+              heads={ListHeaders}
+            />
+          </ListContainer>
         ) : (
           <Label
             size="subtitle"

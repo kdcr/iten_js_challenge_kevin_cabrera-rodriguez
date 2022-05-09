@@ -25,8 +25,7 @@ const FormContainer = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    row-gap: 0px;
-    column-gap: 0px;
+    gap: 1rem;
     width: 100%;
   }
 
@@ -50,6 +49,13 @@ const FormItem = styled.div`
   gap: 5px;
 
   width: ${({ width }) => width};
+`;
+
+const LevelSelect = styled(Select)`
+  @media (max-width: ${DeviceSizes.sm}) {
+    width: 100%;
+  }
+  width: 145px;
 `;
 
 const ClassroomCreation = () => {
@@ -107,7 +113,9 @@ const ClassroomCreation = () => {
 
   return (
     <Container>
-      <Label size="title">{t('addNewClassroom')}</Label>
+      <Label style={{ textAlign: 'center' }} size="title">
+        {t('addNewClassroom')}
+      </Label>
       <FormContainer>
         <FormItem width="300px">
           <Label>{t('classroomName')}</Label>
@@ -115,8 +123,7 @@ const ClassroomCreation = () => {
         </FormItem>
         <FormItem width="150px">
           <Label>{t('level')}</Label>
-          <Select
-            style={{ width: '145px' }}
+          <LevelSelect
             selectedOption={formData.level}
             options={[t('primaryEd'), t('secondaryEd')]}
             onChange={(value) => handleFormData(value, 'level')}

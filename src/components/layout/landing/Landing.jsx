@@ -24,7 +24,9 @@ const Landing = () => {
 
   return (
     <LandingContainer>
-      <Label size="title">{t('welcome')}</Label>
+      <Label style={{ textAlign: 'center' }} size="title">
+        {t('welcome')}
+      </Label>
       <Button onClick={() => navigate('/newClassroom')}>{t('addClassroom')}</Button>
     </LandingContainer>
   );

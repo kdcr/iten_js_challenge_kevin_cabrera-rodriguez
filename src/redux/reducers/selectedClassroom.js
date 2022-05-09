@@ -10,6 +10,7 @@ export const selectedClassroomSlice = createSlice({
   initialState,
   reducers: {
     setClassroom: (state, { payload }) => {
+      localStorage.selectedClassroom = payload;
       state.value = payload;
     },
   },

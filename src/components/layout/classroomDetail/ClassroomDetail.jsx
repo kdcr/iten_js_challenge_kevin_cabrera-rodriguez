@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { deleteClassroom, getClassroomById } from '../../../api/Classrooms';
 import { deleteStudent } from '../../../api/Students';
+import { setClassroom } from '../../../redux/reducers/selectedClassroom';
 import { DeviceSizes } from '../../../utils/Constants';
 
 import Button from '../../atomic/button';
@@ -23,11 +24,12 @@ const Container = styled.div`
 `;
 
 const InnerContainer = styled.div`
-  @media (max-width: ${DeviceSizes.sm}) {
+  @media (max-width: ${DeviceSizes.md}) {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: 10px;
   }
   display: grid;
   grid-template-columns: auto 210px;
@@ -71,9 +73,19 @@ const InfoLabels = styled.div`
   gap: 0.5rem;
 `;
 
+const ListContainer = styled.div`
+  grid-column-start: 1;
+  grid-row-start: 4;
+  grid-column: 1 / span 2;
+  overflow-x: auto;
+  max-width: 98vw;
+  min-width: 0px;
+`;
+
 const ClassroomDetail = () => {
   const { t } = useTranslation('common');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const lastUpdate = useSelector((state) => state.lastUpdate?.value);
   const selectedClassroom = useSelector((state) => state.selectedClassroom?.value);
@@ -128,7 +140,11 @@ const ClassroomDetail = () => {
   };
 
   useEffect(() => {
-    if (!selectedClassroom) navigate('/classrooms');
+    if (!selectedClassroom && getClassroomById(localStorage.selectedClassroom)) {
+      dispatch(setClassroom(localStorage.selectedClassroom));
+    } else if (!selectedClassroom) {
+      navigate('/classrooms');
+    }
   }, []);
 
   useEffect(() => {
@@ -206,11 +222,15 @@ const ClassroomDetail = () => {
           {t('addStudent')}
         </Button>
         {data?.students?.length > 0 ? (
-          <List
-            style={{ gridColumnStart: 1, gridRowStart: 4, gridColumn: '1 / span 2' }}
-            data={data.students}
-            heads={ListHeaders}
-          />
+          <ListContainer className="scroll">
+            <List
+              style={{
+                width: '960px',
+              }}
+              data={data.students}
+              heads={ListHeaders}
+            />
+          </ListContainer>
         ) : (
           <Label
             size="subtitle"
