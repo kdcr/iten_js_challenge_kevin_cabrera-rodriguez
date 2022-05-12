@@ -22,11 +22,10 @@ const checkDate = (date = '') => {
 
 const checkEmail = (email = '') => {
   if (email === '') return true;
-  return email.match(
-    // eslint-disable-next-line max-len
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  // eslint-disable-next-line max-len
+  return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    email,
   );
 };
 
-// eslint-disable-next-line object-curly-newline
 export { checkPersonName, checkEmail, checkClassroomName, checkDate };
