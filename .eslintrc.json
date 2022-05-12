@@ -1,6 +1,6 @@
 {
-  "plugins": ["prettier"],
-  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb"],
+  "plugins": ["prettier", "jest"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb", "prettier"],
   "rules": {
     "react/function-component-definition": [
       2,
@@ -10,20 +10,11 @@
       }
     ],
     "max-len": ["error", { "code": 100, "ignoreStrings": true }],
-    "object-curly-newline": [
-      "error",
-      {
-        "ObjectExpression": { "consistent": true, "multiline": true },
-        "ObjectPattern": { "consistent": true, "multiline": true },
-        "ImportDeclaration": "never",
-        "ExportDeclaration": { "multiline": true, "minProperties": 4 }
-      }
-    ],
     "implicit-arrow-linebreak": [0],
     "function-paren-newline": [0]
   },
   "env": {
-    "browser": true
-  },
-  "parser": "@babel/eslint-parser"
+    "browser": true,
+    "jest": true
+  }
 }

@@ -27,5 +27,4 @@ const reloadMockUp = () => {
   notifyUpdate();
 };
 
-// eslint-disable-next-line object-curly-newline
 export { writeData, loadData, generateUUID, notifyUpdate, reloadMockUp };
