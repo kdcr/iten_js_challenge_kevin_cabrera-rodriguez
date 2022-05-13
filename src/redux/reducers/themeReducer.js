@@ -5,6 +5,9 @@ const initialState = {
   dark: false,
 };
 
+/**
+ * Color theme reducer
+ */
 export const themeSlice = createSlice({
   name: 'theme',
   initialState,

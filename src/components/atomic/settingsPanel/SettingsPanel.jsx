@@ -38,6 +38,11 @@ const Backdrop = styled.div`
   z-index: 10;
 `;
 
+/**
+ * A quick options pop-up with some settings
+ * @param {*} param0
+ * @returns
+ */
 const SettingsPanel = ({ open, handleClose, className, style }) => {
   const { t } = useTranslation('common');
 

@@ -16,7 +16,12 @@ export default {
 };
 
 export const Template = (args) => (
-  <Switch {...args}>
-    <span>Text to display</span>
-  </Switch>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+    <Switch {...args}>
+      <span>Text to display</span>
+    </Switch>
+    <Switch value>
+      <span>Text to display</span>
+    </Switch>
+  </div>
 );

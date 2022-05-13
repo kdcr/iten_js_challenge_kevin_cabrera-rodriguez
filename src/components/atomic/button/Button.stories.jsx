@@ -27,6 +27,19 @@ const Template = (args) => (
   </Button>
 );
 
+const InspectTemplate = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+    <Button type="warning">
+      <span>Text to display</span>
+    </Button>
+    <Button>
+      <span>Text to display</span>
+    </Button>
+  </div>
+);
+
+export const Inspect = InspectTemplate.bind({});
+
 export const Normal = Template.bind({});
 Normal.args = { type: 'normal' };
 

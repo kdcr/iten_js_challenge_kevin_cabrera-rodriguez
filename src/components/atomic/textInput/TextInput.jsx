@@ -11,6 +11,11 @@ const StyledInput = styled.input`
   border-radius: 4px;
 `;
 
+/**
+ * Styled input element
+ * @param {*} props
+ * @returns
+ */
 const TextInput = (props) => {
   const { onChange, placeholder, className, style } = props;
   return (

@@ -1,11 +1,21 @@
 import { generateUUID, loadData, writeData } from './ApiUtils';
 
+/**
+ *
+ * @param {String} classroomId Classroom id
+ * @returns All the students of the specified classroom
+ */
 export const getStudents = (classroomId) => {
   const data = loadData();
   const foundClassRoom = data.classrooms.find((classroom) => classroom.id === classroomId);
   return foundClassRoom.students || [];
 };
 
+/**
+ *
+ * @param {Object} studentData Student object to create
+ * @param {String} classroomId Classroom id to add the student to
+ */
 export const createStudent = (studentData, classroomId) => {
   const data = loadData();
   data.classrooms
@@ -14,6 +24,11 @@ export const createStudent = (studentData, classroomId) => {
   writeData(data);
 };
 
+/**
+ * Deletes the specified student of the specified classroom
+ * @param {String} studentId Student to delete
+ * @param {String} classroomId Classroom id of the student to delete
+ */
 export const deleteStudent = (studentId, classroomId) => {
   const data = loadData();
   const filteredClassrooms = { ...data }.classrooms.filter(

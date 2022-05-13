@@ -16,6 +16,11 @@ const ItemContainer = styled.div`
   border-radius: 4px;
 `;
 
+/**
+ * The list row component, doesn't have any real functionality aside applying the list item styles
+ * @param {*} props
+ * @returns
+ */
 const ListItem = (props) => {
   const { children, className, style } = props;
 
