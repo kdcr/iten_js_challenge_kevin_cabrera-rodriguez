@@ -26,6 +26,11 @@ const Container = styled.button`
   background-color: ${({ disabled }) => disabled && 'var(--color-bg-alt)'};
 `;
 
+/**
+ * A button component, with two types, normal and warning
+ * @param {*} props
+ * @returns
+ */
 const Button = (props) => {
   const { children, type, onClick, disabled, className, style } = props;
 

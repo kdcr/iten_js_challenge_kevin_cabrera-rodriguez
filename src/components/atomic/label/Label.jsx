@@ -25,6 +25,11 @@ const LabelContainer = styled.span`
   color: ${({ color }) => (color === TextColors.PRIMARY ? 'var(--color-fg)' : 'var(--color-fg-light)')};
 `;
 
+/**
+ * The default component when dealing with text sizes and color
+ * @param {*} props
+ * @returns
+ */
 const Label = (props) => {
   const { children, size, color, style, className } = props;
 
