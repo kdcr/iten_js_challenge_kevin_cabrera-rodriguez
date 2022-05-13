@@ -5,6 +5,9 @@ const initialState = {
   value: 0,
 };
 
+/**
+ * Selected classroom reducer
+ */
 export const selectedClassroomSlice = createSlice({
   name: 'selectedClassroom',
   initialState,

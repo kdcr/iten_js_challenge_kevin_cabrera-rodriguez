@@ -30,6 +30,23 @@ $ yarn run build
 
 The production-ready build is in the "dist" folder, and can be served directly with nginx, apache, serve etc
 
+### Instructions to run storybook
+
+After installing the projects dependencies, run
+
+```shell
+#npm
+
+$ npm run storybook
+
+#yarn
+
+$ yarn run storybook
+```
+
+This will serve a storybook application and open a new tab in your default web browser with it
+
+
 ### Management of the challenge goals
 
 #### 1. Development of the List/View/Add/Remove actions
