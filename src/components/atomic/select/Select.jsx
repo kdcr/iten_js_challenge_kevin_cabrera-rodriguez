@@ -68,6 +68,11 @@ const Arrow = styled.div`
   transform: ${({ open }) => (open ? 'scaleY(-1)' : 'scaleY(1)')};
 `;
 
+/**
+ * A select component with custom styling, this way it works on every browser/machine
+ * @param {*} props
+ * @returns
+ */
 const Select = (props) => {
   const { onChange, options, selectedOption, placeholder, className, style } = props;
 

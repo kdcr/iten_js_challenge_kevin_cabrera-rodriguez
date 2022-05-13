@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * An alternative button component to act as the 'a' element
+ * @param {*} props
+ * @returns
+ */
 const LinkButton = (props) => {
   const { children, onClick, className, style } = props;
 

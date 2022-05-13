@@ -34,6 +34,11 @@ const SwitchElement = styled.div`
   transform: ${({ checked }) => (checked ? 'translateX(22px)' : 'translateX(4px)')};
 `;
 
+/**
+ * Stateless boolean type input component
+ * @param {*} props
+ * @returns
+ */
 const Switch = (props) => {
   const { children, value, onClick, className, style } = props;
 

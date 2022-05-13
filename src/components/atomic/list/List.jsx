@@ -27,6 +27,11 @@ const ListContent = styled.div`
   gap: 5px;
 `;
 
+/**
+ * Dynamic list component, needs an array consisting of the list headers
+ * @param {*} props
+ * @returns
+ */
 const List = (props) => {
   const { heads, data, className, style } = props;
 
