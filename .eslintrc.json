@@ -1,6 +1,13 @@
 {
+  "parser": "@babel/eslint-parser",
   "plugins": ["prettier", "jest"],
-  "extends": ["eslint:recommended", "plugin:react/recommended", "airbnb", "prettier"],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "airbnb",
+    "prettier",
+    "plugin:jest/all"
+  ],
   "rules": {
     "react/function-component-definition": [
       2,
@@ -11,10 +18,24 @@
     ],
     "max-len": ["error", { "code": 100, "ignoreStrings": true }],
     "implicit-arrow-linebreak": [0],
-    "function-paren-newline": [0]
+    "function-paren-newline": [0],
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error"
   },
   "env": {
     "browser": true,
-    "jest": true
-  }
+    "jest/globals": true,
+    "es2022": true
+  },
+  "overrides": [
+    {
+      "files": ["test/**"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"],
+      "rules": { "jest/prefer-expect-assertions": "off" }
+    }
+  ]
 }
