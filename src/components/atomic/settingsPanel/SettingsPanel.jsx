@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { reloadMockUp } from '../../../api/ApiUtils';
 
@@ -41,6 +42,7 @@ const SettingsPanel = ({ open, handleClose, className, style }) => {
   const { t } = useTranslation('common');
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const darkTheme = useSelector((state) => state.theme.dark);
 
@@ -56,7 +58,15 @@ const SettingsPanel = ({ open, handleClose, className, style }) => {
           options={['es', 'en']}
           onChange={(value) => i18n.changeLanguage(value)}
         />
-        <Button onClick={reloadMockUp}>{t('reloadMockupData')}</Button>
+        <Button
+          onClick={() => {
+            reloadMockUp();
+            navigate('/');
+            handleClose();
+          }}
+        >
+          {t('reloadMockupData')}
+        </Button>
       </Container>
       {open ? <Backdrop onClick={handleClose} /> : null}
     </div>
