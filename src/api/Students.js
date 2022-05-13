@@ -1,4 +1,4 @@
-import { generateUUID, loadData, notifyUpdate, writeData } from './ApiUtils';
+import { generateUUID, loadData, writeData } from './ApiUtils';
 
 export const getStudents = (classroomId) => {
   const data = loadData();
@@ -12,7 +12,6 @@ export const createStudent = (studentData, classroomId) => {
     .find((classroom) => classroom.id === classroomId)
     .students.push({ id: generateUUID(), ...studentData });
   writeData(data);
-  notifyUpdate();
 };
 
 export const deleteStudent = (studentId, classroomId) => {
@@ -31,5 +30,4 @@ export const deleteStudent = (studentId, classroomId) => {
   if (!finalData.classrooms) finalData.classrooms = [];
   finalData.classrooms.push(editedClassroom);
   writeData(finalData);
-  notifyUpdate();
 };
