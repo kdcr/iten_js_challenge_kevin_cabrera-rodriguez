@@ -1,4 +1,3 @@
-import store from '../redux/store';
 import MockupData from './MockupData.json';
 
 /**
@@ -30,19 +29,8 @@ const generateUUID = () =>
     (c ^ (crypto.getRandomValues(new Uint8Array(1))[0] & (15 >> (c / 4)))).toString(16),
   );
 
-/**
- * Dispatches the lastUpdate action to redux state
- */
-const notifyUpdate = () => {
-  store.dispatch({ type: 'lastUpdate/setLastUpdate', payload: Date.now() });
-};
-
-/**
- * Loads the default data to localStorage
- */
 const reloadMockUp = () => {
   writeData(MockupData);
-  notifyUpdate();
 };
 
-export { writeData, loadData, generateUUID, notifyUpdate, reloadMockUp };
+export { writeData, loadData, generateUUID, reloadMockUp };

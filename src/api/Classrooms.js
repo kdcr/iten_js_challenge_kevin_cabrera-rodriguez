@@ -1,4 +1,4 @@
-import { generateUUID, loadData, notifyUpdate, writeData } from './ApiUtils';
+import { generateUUID, loadData, writeData } from './ApiUtils';
 
 /**
  *
@@ -36,7 +36,6 @@ export const createClassrooms = (newClassroom) => {
     students: [],
   });
   writeData(data);
-  notifyUpdate();
 };
 
 /**
@@ -48,5 +47,4 @@ export const deleteClassroom = (classroomId) => {
   const { classrooms } = JSON.parse(JSON.stringify(data));
   data.classrooms = classrooms.filter((classroom) => classroom.id !== classroomId);
   writeData(data);
-  notifyUpdate();
 };

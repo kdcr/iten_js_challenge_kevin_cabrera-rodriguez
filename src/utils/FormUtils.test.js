@@ -1,45 +1,58 @@
 import { checkDate, checkPersonName, checkClassroomName, checkEmail } from './FormUtils';
 
-test('Test checkPersonName correct name', () => {
-  expect(checkPersonName('Marc Rodríguez')).toBe(true);
-});
+describe('form utils test suite', () => {
+  it('checkPersonName correct name', () => {
+    expect.assertions(1);
+    expect(checkPersonName('Marc Rodríguez')).toBe(true);
+  });
 
-test('Test checkPersonName incorrect name (number in the name)', () => {
-  expect(checkPersonName('Marc Rodríguez2')).toBe(false);
-});
+  it('checkPersonName incorrect name (number in the name)', () => {
+    expect.assertions(1);
+    expect(checkPersonName('Marc Rodríguez2')).toBe(false);
+  });
 
-test('Test checkClassroomName valid classroom name', () => {
-  expect(checkClassroomName('Classroom 01')).toBe(true);
-});
+  it('checkClassroomName valid classroom name', () => {
+    expect.assertions(1);
+    expect(checkClassroomName('Classroom 01')).toBe(true);
+  });
 
-test('Test checkClassroomName invalid classroom name (Too long)', () => {
-  expect(checkClassroomName('Classroom 0123456789')).toBe(false);
-});
+  it('checkClassroomName invalid classroom name (Too long)', () => {
+    expect.assertions(1);
+    expect(checkClassroomName('Classroom 0123456789')).toBe(false);
+  });
 
-test('Test checkDate correct date format 02-02-2022', () => {
-  expect(checkDate('02-02-2022')).toBe(true);
-});
+  it('checkDate correct date format 02-02-2022', () => {
+    expect.assertions(1);
+    expect(checkDate('02-02-2022')).toBe(true);
+  });
 
-test('Test checkDate incorrect date format 2002-02-02', () => {
-  expect(checkDate('2002-02-02')).toBe(false);
-});
+  it('checkDate incorrect date format 2002-02-02', () => {
+    expect.assertions(1);
+    expect(checkDate('2002-02-02')).toBe(false);
+  });
 
-test('Test checkDate incorrect date format', () => {
-  expect(checkDate('10-20-2022')).toBe(false);
-});
+  it('checkDate incorrect date format', () => {
+    expect.assertions(1);
+    expect(checkDate('10-20-2022')).toBe(false);
+  });
 
-test('Test checkDate empty string', () => {
-  expect(checkDate('')).toBe(true);
-});
+  it('checkDate empty string', () => {
+    expect.assertions(1);
+    expect(checkDate('')).toBe(true);
+  });
 
-test('Test checkEmail correct email', () => {
-  expect(checkEmail('person@site.com')).toBe(true);
-});
+  it('checkEmail correct email', () => {
+    expect.assertions(1);
+    expect(checkEmail('person@site.com')).toBe(true);
+  });
 
-test('Test checkEmail incorrect email', () => {
-  expect(checkEmail('site.com')).toBe(false);
-});
+  it('checkEmail incorrect email', () => {
+    expect.assertions(1);
+    expect(checkEmail('site.com')).toBe(false);
+  });
 
-test('Test checkEmail empty string', () => {
-  expect(checkEmail('')).toBe(true);
+  it('checkEmail empty string', () => {
+    expect.assertions(1);
+    expect(checkEmail('')).toBe(true);
+  });
 });

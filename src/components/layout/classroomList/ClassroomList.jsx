@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -71,8 +71,6 @@ const ClassroomList = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const lastUpdate = useSelector((state) => state.lastUpdate?.value);
-
   const [data, setData] = useState(null);
 
   const handleViewClass = (classroomId) => {
@@ -111,10 +109,6 @@ const ClassroomList = () => {
       })),
     );
   };
-
-  useEffect(() => {
-    loadClassroomData();
-  }, [lastUpdate]);
 
   useEffect(() => {
     loadClassroomData();

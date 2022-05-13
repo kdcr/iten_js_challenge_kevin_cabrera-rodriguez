@@ -87,7 +87,6 @@ const ClassroomDetail = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const lastUpdate = useSelector((state) => state.lastUpdate?.value);
   const selectedClassroom = useSelector((state) => state.selectedClassroom?.value);
 
   const [data, setData] = useState(null);
@@ -149,7 +148,7 @@ const ClassroomDetail = () => {
 
   useEffect(() => {
     loadClassroomData();
-  }, [lastUpdate, selectedClassroom]);
+  }, [selectedClassroom]);
 
   const ListHeaders = [
     {
