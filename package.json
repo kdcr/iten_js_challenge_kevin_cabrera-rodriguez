@@ -12,7 +12,7 @@
     "build": "webpack",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint": "eslint '**/*.js' --ignore-pattern node_modules/",
+    "lint": "eslint 'src/**/*.js' 'src/**/*.jsx'",
     "test": "jest"
   },
   "dependencies": {
@@ -43,6 +43,7 @@
     "eslint-config-airbnb": "19.0.4",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.2.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react": "^7.29.4",
